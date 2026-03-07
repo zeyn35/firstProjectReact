@@ -1,4 +1,4 @@
-
+import MainCounter from "./MainCounter"
 
 function ProductCard({image, name, description, price}) {
 
@@ -28,7 +28,12 @@ function ProductCard({image, name, description, price}) {
         <button className="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-3 px-4 rounded-lg text-lg shadow-md">
           🛒 Купить
         </button>
+
+        <MainCounter/>
+
       </div>
+
+      
     )
 }
 
