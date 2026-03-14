@@ -3,6 +3,7 @@ import SampleBlock from "../components/SampleBlock"
 import ComponentUseState from "../components/ComponentUseState"
 import SampleBlockUseState from "../components/SampleBlockUseState"
 import Counter from "../components/Counter"
+import MyList from "../components/MyList"
 
 
 function Education() {
@@ -18,6 +19,7 @@ function Education() {
         <ComponentUseState/>
         <SampleBlockUseState/>
         <Counter/>
+        <MyList/>
 
         </div>
     )
