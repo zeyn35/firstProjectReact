@@ -1,4 +1,4 @@
-import MainCounter from "./MainCounter"
+import MainCounter from "../ui/MainCounter"
 
 function ProductCard({image, name, description, price}) {
 
