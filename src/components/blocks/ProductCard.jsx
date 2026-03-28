@@ -1,9 +1,15 @@
 import MainCounter from "../ui/MainCounter"
+import Favorites from "../Favorites"
+import { useState } from "react"
 
 function ProductCard({image, name, description, price}) {
+  const [isVisible, setIsVisible] = useState(true)
 
     return (
         <div className="max-w-sm mx-auto bg-white rounded-xl shadow-lg p-6">
+
+        <Favorites isVisible={isVisible} setIsVisible={setIsVisible}/>
+
         <div className="text-6xl mb-4 text-center">
           {image}
         </div>
