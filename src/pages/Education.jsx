@@ -6,8 +6,15 @@ import Counter from "../components/Counter"
 import MyList from "../components/MyList"
 import FirstConditional from "../components/EduComponents/FirstConditional"
 import { use, useState } from "react"
+import OnChangeComp from "../components/OnChangeComp"
+import { useEffect } from "react"
 
 function Education() {
+    useEffect(()=>{
+        console.log("Страница Education загрузилась")
+    }, [])
+
+
     const [isVisible, setIsVisible] = useState(true)
 
     return (
@@ -24,6 +31,7 @@ function Education() {
         <MyList/>
         <FirstConditional isVisible={isVisible} setIsVisible={setIsVisible}/>
         <button onClick={()=>setIsVisible(!isVisible)}>Изменить отображение</button>
+        <OnChangeComp/>
 
         </div>
     )

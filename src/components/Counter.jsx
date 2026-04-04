@@ -1,9 +1,14 @@
 import { useState } from "react"
 import CounterView from "./CounterView"
 import CounterButtons from "./CounterButtons"
+import { useEffect } from "react"
 
 function Counter() {
     const [count, setCount] = useState(0)
+
+    useEffect(()=>{
+        console.log("Значение count = ", count)
+    }, [count])
 
     return (
         <div className="p-4">

@@ -1,5 +1,6 @@
 import ProductCard from './ProductCard'
 import { useState } from "react"
+import MainSearchBlock from '../MainSearchBlock'
 
 function ProductList() {
     const [products, setProducts] = useState([
@@ -11,9 +12,14 @@ function ProductList() {
         {id: "6", image: "🖥️", name: "Монитор", description: "Игровой монитор 240Hz", price: "1200"}
     ])
 
+    const [filteredProducts, setFilteredProducts] = useState(products)
+
     return (
         <div className='flex flex-wrap gap-5 mt-15 justify-center px-5'>
-            {products.map((product) => (
+            <div className='flex flex-col'>
+                <MainSearchBlock products={products} setSearchFilter={setFilteredProducts}/>
+            </div>
+            {filteredProducts.map((product) => (
                 <ProductCard
                     image={product.image}
                     name={product.name}

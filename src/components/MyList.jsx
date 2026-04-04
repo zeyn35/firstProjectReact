@@ -1,15 +1,29 @@
-import { useState } from "react"
+import { useReducer, useState } from "react"
+import { useEffect } from "react"
+import SearchBlock from "./SearchBlock"
 
 
 function MyList() {
-    const [items, setItems] = useState([
+    const [items, setItems] = useState([])
+    const [filteredItems, setFilteredItems] = useState("")
+    const [search, setSearch] = useState("")
+
+
+    useEffect(()=>{
+        console.log("Загрузилась страница MyList")
+        setTimeout(() => {
+            const data = [
         {id: "1", name: "один", price: 514},
         {id: "2", name: "два", price: 502},
-        {id: "3", name: "три", price: 624}
-    ])
+        {id: "3", name: "три", price: 624}]
+
+        setItems(data)
+        setFilteredItems(data)
+
+        }, 3000);
 
 
-    
+    }, [])
 
     function removeItem(id) {
         const updateList = items.filter((item)=> item.id != id)
@@ -19,11 +33,15 @@ function MyList() {
         console.log("Удалён", updateList)
     }
 
-
+    if (items.length == 0) {
+        return <h3>Загрузка...</h3>
+    }
 
     return (
         <div className="flex flex-col gap-10 w-50">
-            {items.map((item)=>(
+            <h2>Состояние UseEffect</h2>
+            <SearchBlock items={items} setSearchFilter={setFilteredItems}/>
+            {filteredItems.map((item)=>(
                 <div key={item["id"]} className="border border-rose-500">
                     <h2 >{item["name"]}</h2>
                     <p>{item["price"]}</p>
