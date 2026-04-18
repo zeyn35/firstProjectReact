@@ -2,7 +2,7 @@ import MainCounter from "../ui/MainCounter"
 import Favorites from "../Favorites"
 import { useState } from "react"
 
-function ProductCard({image, name, description, price}) {
+function ProductCard({image, name, description, price, discountedPrice}) {
   const [isVisible, setIsVisible] = useState(true)
 
     return (
@@ -27,7 +27,7 @@ function ProductCard({image, name, description, price}) {
             {price}$
           </span>
           <span className="text-2xl font-bold text-gray-900">
-            {price*0.5}$
+            {discountedPrice}$
           </span>
         </div>
         
