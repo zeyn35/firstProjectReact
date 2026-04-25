@@ -1,6 +1,6 @@
 import { useState } from "react"
-import CounterView from "./CounterView"
-import CounterButtons from "./CounterButtons"
+import CounterView from "../CounterView"
+import CounterButtons from "../CounterButtons"
 import { useEffect } from "react"
 
 function Counter() {

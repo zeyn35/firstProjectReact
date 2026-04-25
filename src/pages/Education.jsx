@@ -1,13 +1,14 @@
-import MyComponent from "../components/MyComponent"
-import SampleBlock from "../components/SampleBlock"
-import ComponentUseState from "../components/ComponentUseState"
-import SampleBlockUseState from "../components/SampleBlockUseState"
-import Counter from "../components/Counter"
-import MyList from "../components/MyList"
+import MyComponent from "../components/EduComponents/MyComponent"
+import SampleBlock from "../components/EduComponents/SampleBlock"
+import ComponentUseState from "../components/EduComponents/ComponentUseState"
+import SampleBlockUseState from "../components/EduComponents/SampleBlockUseState"
+import Counter from "../components/EduComponents/Counter"
+import MyList from "../components/EduComponents/MyList"
 import FirstConditional from "../components/EduComponents/FirstConditional"
 import { use, useState } from "react"
-import OnChangeComp from "../components/OnChangeComp"
+import OnChangeComp from "../components/EduComponents/OnChangeComp"
 import { useEffect } from "react"
+import Users from "../components/EduComponents/Users"
 
 function Education() {
     useEffect(()=>{
@@ -20,6 +21,7 @@ function Education() {
     return (
         <div className="flex flex-col gap-10">
         <h1>Обучающая страница</h1>
+        <Users/>
         <MyComponent/>
         <SampleBlock
             title={"Заголовок"}

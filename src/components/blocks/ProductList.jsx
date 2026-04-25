@@ -3,18 +3,22 @@ import { useState } from "react"
 import MainSearchBlock from '../MainSearchBlock'
 import PriceFilter from '../PriceFilter'
 import PriceSort from '../PriceSort'
+import { useEffect } from 'react'
 
 function ProductList() {
-    const [products] = useState([
-        {id: "1", image: "💻", name: "Ноутбук", description: "Хороший ноутбук", price: "1500", discountedPrice: "750"},
-        {id: "2", image: "📱", name: "Телефон", description: "Современный телефон", price: "1000", discountedPrice: "500"},
-        {id: "3", image: "🖥️", name: "Монитор", description: "Игровой монитор 240Hz", price: "1200", discountedPrice: "600"},
-        {id: "4", image: "⌨️", name: "Клавиатура", description: "Механическая клавиатура", price: "240", discountedPrice: "120"},
-        {id: "5", image: "🎧", name: "Наушники", description: "Хорошие наушники", price: "400", discountedPrice: "200"},
-        {id: "6", image: "🖱️", name: "Мышка", description: "Современная мышка", price: "200", discountedPrice: "100"}
-    ])
+    const [products, setProducts] = useState([])  
 
     const [filteredProducts, setFilteredProducts] = useState(products)
+    
+    useEffect(()=>{
+
+        fetch("https://69ec8be8af4ff533142b135e.mockapi.io/products")
+        .then((res)=>res.json())
+        .then((data)=>{
+            setFilteredProducts(data)
+            setProducts(data)
+        })
+    }, [])
 
     return (
         <div>
@@ -46,6 +50,7 @@ function ProductList() {
                             description={product.description}
                             price={product.price}
                             discountedPrice={product.discountedPrice}
+                            id={product.id}
                         />
                     ))
                 )}

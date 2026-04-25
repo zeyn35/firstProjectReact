@@ -1,7 +1,6 @@
 import { useState } from "react"
 
-export default function MainCounter() {
-    const [count, setCount] = useState(1)
+export default function MainCounter({count, setCount}) {
 
     return (
         <div className="flex flex-wrap items-center justify-center">

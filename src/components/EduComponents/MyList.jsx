@@ -1,6 +1,6 @@
 import { useReducer, useState } from "react"
 import { useEffect } from "react"
-import SearchBlock from "./SearchBlock"
+import SearchBlock from "../SearchBlock"
 
 
 function MyList() {

@@ -2,8 +2,13 @@ import MainCounter from "../ui/MainCounter"
 import Favorites from "../Favorites"
 import { useState } from "react"
 
-function ProductCard({image, name, description, price, discountedPrice}) {
+function ProductCard({id, image, name, description, price, discountedPrice}) {
   const [isVisible, setIsVisible] = useState(true)
+  const [count, setCount] = useState(1)
+
+function addToBasket(idProduct, count) {
+  console.log(idProduct, count)
+}
 
     return (
         <div className="max-w-sm mx-auto bg-white rounded-xl shadow-lg p-6">
@@ -11,7 +16,7 @@ function ProductCard({image, name, description, price, discountedPrice}) {
         <Favorites isVisible={isVisible} setIsVisible={setIsVisible}/>
 
         <div className="text-6xl mb-4 text-center">
-          {image}
+          <img src={image}></img>
         </div>
         
         <h3 className="text-xl font-bold text-gray-800 mb-2">
@@ -31,11 +36,17 @@ function ProductCard({image, name, description, price, discountedPrice}) {
           </span>
         </div>
         
-        <button className="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-3 px-4 rounded-lg text-lg shadow-md">
+        <MainCounter
+        count={count}
+        setCount={setCount}
+        />
+
+        <button className="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-3 px-4 rounded-lg text-lg shadow-md"
+        onClick={()=>addToBasket(id, count)}>
           🛒 Купить
         </button>
 
-        <MainCounter/>
+        
 
       </div>
 
