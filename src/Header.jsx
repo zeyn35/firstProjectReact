@@ -1,5 +1,5 @@
-import Login from "./components/login"
 import { useState } from "react"
+import Login from "./components/Login"
 
 
 function Header() {
