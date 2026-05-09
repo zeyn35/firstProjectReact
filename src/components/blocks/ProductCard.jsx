@@ -1,29 +1,28 @@
 import MainCounter from "../ui/MainCounter"
-import Favorites from "../Favorites"
+import Favorites from "../MainComponents/Favorites"
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
-function ProductCard({id, image, name, description, price, discountedPrice}) {
+function ProductCard({id, image, name, description, price, discountedPrice, onBuyClick}) {
   const [isVisible, setIsVisible] = useState(true)
   const [count, setCount] = useState(1)
 
-function addToBasket(idProduct, count) {
-  console.log(idProduct, count)
-}
-
     return (
-        <div className="max-w-sm mx-auto bg-white rounded-xl shadow-lg p-6">
+        <div className="max-w-sm mx-auto bg-white rounded-xl shadow-lg p-6" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
 
         <Favorites isVisible={isVisible} setIsVisible={setIsVisible}/>
 
-        <div className="text-6xl mb-4 text-center">
-          <img src={image}></img>
+        <div className="text-6xl mb-4 text-center" style={{ height: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <img src={image} alt={name} style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '8px' }} />
         </div>
         
-        <h3 className="text-xl font-bold text-gray-800 mb-2">
+        <Link to={"/product/" + id}>
+        <h3 className="text-xl font-bold text-gray-800 mb-2" style={{ minHeight: '60px' }}>
           {name}
         </h3>
-        
-        <p className="text-gray-600 mb-4">
+        </Link>
+
+        <p className="text-gray-600 mb-4" style={{ flex: 1, minHeight: '80px' }}>
           {description}
         </p>
         
@@ -41,12 +40,13 @@ function addToBasket(idProduct, count) {
         setCount={setCount}
         />
 
+        
         <button className="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-3 px-4 rounded-lg text-lg shadow-md"
-        onClick={()=>addToBasket(id, count)}>
+        onClick={() => { 
+          onBuyClick();
+        }}>
           🛒 Купить
         </button>
-
-        
 
       </div>
 

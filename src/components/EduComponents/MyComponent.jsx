@@ -1,5 +1,5 @@
-import MyElement from "../MyElement"
-import SampleButton from "../SampleButton"
+import MyElement from "./MyElement"
+import SampleButton from "./SampleButton"
 
 function MyComponent() {
 

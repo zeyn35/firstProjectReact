@@ -1,9 +1,9 @@
 import { useState } from "react"
-import Login from "./components/Login"
+import Login from "./components/MainComponents/Login"
 
 
 function Header() {
-    const [isVisible, setIsVisible] = useState(true)
+    const [isVisible, setIsVisible] = useState(false)
 
     return (
 
