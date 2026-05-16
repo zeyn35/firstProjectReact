@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Login from "./components/MainComponents/Login"
+import AdminPanel from "./components/MainComponents/AdminPanel"
 
 
 function Header() {
@@ -9,7 +10,10 @@ function Header() {
 
         <header className="flex justify-between items-center p-4">
             <p className="flex-1">Интернет магазин</p>
-            <Login isVisible={isVisible} setIsVisible={setIsVisible}/>           
+            <Login isVisible={isVisible} setIsVisible={setIsVisible}/>
+            <AdminPanel/>
+
+
         </header>
     )
 }

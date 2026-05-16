@@ -9,6 +9,7 @@ import { use, useState } from "react"
 import OnChangeComp from "../components/EduComponents/OnChangeComp"
 import { useEffect } from "react"
 import Users from "../components/EduComponents/Users"
+import TestForm from "../components/EduComponents/TestForm"
 
 function Education() {
     useEffect(()=>{
@@ -21,6 +22,11 @@ function Education() {
     return (
         <div className="flex flex-col gap-10">
         <h1>Обучающая страница</h1>
+
+        
+        <TestForm/>
+
+
         {/* <Users/> */}
         <MyComponent/>
         <SampleBlock
